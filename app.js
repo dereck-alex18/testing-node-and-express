@@ -1,6 +1,7 @@
 const express = require('express');
 const hbs = require('hbs');
 const app = express();
+const port = process.env.PORT || 3000;
 
 app.set('view engine', 'hbs');
 app.use(express.static('public'));
@@ -24,10 +25,10 @@ app.use((req, res, next) => {
     next();
 }); 
 
-//Middleware for when the site is under maintenance
-app.use((req, res, next) => {
-    res.render("maintenance");
-});
+// //Middleware for when the site is under maintenance
+// app.use((req, res, next) => {
+//     res.render("maintenance");
+// });
 
 
 app.get('/', (req, res) => {
@@ -54,4 +55,4 @@ app.get('/bad', (req, res) => {
     });
 });
 
-app.listen(3000);
+app.listen(port);

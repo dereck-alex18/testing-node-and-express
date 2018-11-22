@@ -48,6 +48,13 @@ app.get('/about', (req, res) => {
     });
 });
 
+app.get('/portfolio', (req, res) => {
+    res.render("portfolio.hbs", {
+        title: "Portfolio",
+        message: "Portfolio goes here"
+    });
+});
+
 app.get('/bad', (req, res) => {
     res.send({
         status: 600,
